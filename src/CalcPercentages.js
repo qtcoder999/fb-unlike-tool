@@ -13,5 +13,5 @@ for (let i in percentages) {
 
 const maxInArray = Math.max.apply(Math, arr);
 
-// console.log(arr.sort());
-console.log("Highest rating: ", maxInArray);
+console.log(arr.sort());
+// console.log("Highest rating: ", maxInArray);

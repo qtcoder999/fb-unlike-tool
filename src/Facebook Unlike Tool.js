@@ -13,18 +13,29 @@ const clickUnlike = async () =>
   new Promise(resolve => setTimeout(clickAllTheUnlikePopUps(resolve), 1000));
 
 const scrollToBottom = () => {
-  window.scrollTo(0, document.body.scrollHeight);
+  let counter = 0;
+
+  var scrollHandle = setInterval(function() {
+    window.scrollTo(0, document.body.scrollHeight);
+    counter++;
+
+    if (counter >= 50) {
+      return new Promise(resolve => {
+        resolve(), clearInterval(scrollHandle);
+      });
+    }
+  }, 1);
 };
 
 /* main execution */
 
 let triggerProcess = async () => {
+  await scrollToBottom();
   let buttons = document.getElementsByClassName("PageLikedButton");
   for (let button of buttons) {
     button.click();
   }
   await clickUnlike();
-  scrollToBottom();
 };
 
 // eslint-disable-next-line no-unused-vars
