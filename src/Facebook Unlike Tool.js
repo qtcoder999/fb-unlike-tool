@@ -1,4 +1,5 @@
 /* function definitions */
+(function (){
 
 const clickAllTheUnlikePopUps = resolve => {
   for (const a of document.querySelectorAll("*")) {
@@ -42,3 +43,6 @@ let triggerProcess = async () => {
 let handle = setInterval(triggerProcess, 1);
 
 // clearInterval(handle);
+
+
+})();
